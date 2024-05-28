@@ -1,6 +1,42 @@
+import MainSectionLayout from "../components/layout/MainSectionLayout";
+import AllPlaces from "../components/main/AllPlaces";
+
 function PlacesPage() {
     return ( 
-        <h1>All Places Page</h1>
+        <AllPlaces>
+            <MainSectionLayout>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+                <h1>All Places Page</h1>
+            </MainSectionLayout>
+        </AllPlaces>
     );
 }
 

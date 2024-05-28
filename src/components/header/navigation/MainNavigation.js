@@ -11,8 +11,8 @@ function MainNavigation(props) {
                 <span />
             </button>
 
-            <div className={classes.navbar_logo}>
-                <Link to="/" className={classes.navbar_logo_link}>PLACES</Link>
+            <div>
+                <Link to="/" className={classes.navbar_logo_link}>YOURPLACES</Link>
             </div>
             <ul className={classes.navbar_list}>
                 <NavLinks/>

@@ -1,6 +1,10 @@
+import MainSectionLayout from "../components/layout/MainSectionLayout";
+
 function AddPlacePage() {
     return ( 
-        <h1>Add Place Page</h1>
+        <MainSectionLayout>
+            <h1>Add Place Page</h1>
+        </MainSectionLayout>
     );
 }
 

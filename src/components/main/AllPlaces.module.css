@@ -1,0 +1,7 @@
+.all_places {
+    background-image: url("../../assets/forrest.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+}

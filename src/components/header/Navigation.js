@@ -1,6 +1,10 @@
 import classes from "./Navigation.module.css";
+import mobileClass from "./navigation/MobileNavigation.module.css";
 import { useState } from "react";
 import MainNavigation from "./navigation/MainNavigation";
+import MobileNavWrap from "../UIElements/MobileNavWrap";
+import MobileNavigation from "./navigation/MobileNavigation";
+import NavLinks from "./NavLinks";
 
 function Navigation() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -15,7 +19,16 @@ function Navigation() {
 
     return ( 
         <>
-
+            {isMobileNavOpen && (<MobileNavWrap onClick={handlerCloseMobileNav}/>)}
+            {isMobileNavOpen && 
+                (<MobileNavigation onClose={handlerCloseMobileNav}>
+                    <nav className={mobileClass.mobile_navbar}>
+                        <ul className={mobileClass.mobile_navbar_list}>
+                            <NavLinks />
+                        </ul>    
+                    </nav>        
+                </MobileNavigation>)
+            }
 
             <header className={classes.main_header}>
                 <MainNavigation onClick={handlerOpenMobileNav}/>

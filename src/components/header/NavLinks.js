@@ -11,7 +11,7 @@ function NavLinks(props) {
             </li>
             <li className={classes.navbar_item}>
                 <NavLink to="/places" className={({ isActive }) => isActive ? classes.active : classes.navbar_link} end>
-                    Your Places
+                    Places
                 </NavLink>
             </li>
             <li className={classes.navbar_item}>

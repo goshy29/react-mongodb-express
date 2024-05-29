@@ -1,5 +1,5 @@
 .section {
-    background-image: url("../../assets/forrest.jpg");
+    background-image: url("../../assets/beach.jpg");
     background-size: cover;
     background-position: center center;
     height: 100vh;
@@ -24,6 +24,31 @@
 .section_content p {
     color: white;
     font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;  
+    letter-spacing: 2px;
+}
+
+.btn:hover {
+    background-color: #ffffff;  
+    color: black;
+}
+
+.btn:hover a {
+    color: black;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {

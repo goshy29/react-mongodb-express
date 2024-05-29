@@ -1,10 +1,14 @@
+import UserForm from "../components/UIElements/UserForm";
+import AddPlace from "../components/layout/AddPlace";
 import MainSectionLayout from "../components/layout/MainSectionLayout";
 
 function AddPlacePage() {
     return ( 
-        <MainSectionLayout>
-            <h1>Add Place Page</h1>
-        </MainSectionLayout>
+        <AddPlace>
+            <MainSectionLayout>
+                <UserForm />
+            </MainSectionLayout>
+        </AddPlace>
     );
 }
 

@@ -1,9 +1,13 @@
 .navbar {
     background-color: white;
-    padding: 20px 60px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navbar_logo span {
+    color: #65c0ba;
 }
 
 .navbar_logo_link {
@@ -13,6 +17,7 @@
     letter-spacing: 0.15rem;
     text-transform: uppercase;
     font-size: 1.5rem;
+    letter-spacing: 4px;
 }
   
 .navbar_list {
@@ -30,21 +35,16 @@
     color: black;
     text-decoration: none;
     padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 .navbar_link:hover {
-    background-color: #fa923f;
+    color: #65c0ba;
 }
 
 .active {
-    background-color: #fa923f;
-    color: #fff;
+    color: #65c0ba;
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .mobileNav_btn_menu {

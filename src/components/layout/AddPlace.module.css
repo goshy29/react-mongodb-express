@@ -1,0 +1,8 @@
+.add_place {
+    background-image: url("../../assets/plane.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+}

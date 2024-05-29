@@ -1,5 +1,5 @@
 import MainSectionLayout from "../components/layout/MainSectionLayout";
-import AllPlaces from "../components/main/AllPlaces";
+import AllPlaces from "../components/layout/AllPlaces";
 
 function PlacesPage() {
     return ( 

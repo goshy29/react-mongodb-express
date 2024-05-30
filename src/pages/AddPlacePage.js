@@ -1,14 +1,14 @@
 import UserForm from "../components/UIElements/UserForm";
-import AddPlace from "../components/layout/AddPlace";
+import AddPlaceLayout from "../components/layout/AddPlaceLayout";
 import MainSectionLayout from "../components/layout/MainSectionLayout";
 
 function AddPlacePage() {
     return ( 
-        <AddPlace>
+        <AddPlaceLayout>
             <MainSectionLayout>
                 <UserForm />
             </MainSectionLayout>
-        </AddPlace>
+        </AddPlaceLayout>
     );
 }
 

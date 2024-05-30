@@ -1,9 +1,9 @@
 import MainSectionLayout from "../components/layout/MainSectionLayout";
-import AllPlaces from "../components/layout/AllPlaces";
+import AllPlacesLayout from "../components/layout/AllPlacesLayout";
 
 function PlacesPage() {
     return ( 
-        <AllPlaces>
+        <AllPlacesLayout>
             <MainSectionLayout>
                 <h1>All Places Page</h1>
                 <h1>All Places Page</h1>
@@ -36,7 +36,7 @@ function PlacesPage() {
                 <h1>All Places Page</h1>
                 <h1>All Places Page</h1>
             </MainSectionLayout>
-        </AllPlaces>
+        </AllPlacesLayout>
     );
 }
 

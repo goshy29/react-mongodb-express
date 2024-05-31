@@ -2,8 +2,7 @@ import classes from "./HomeSection.module.css";
 import image from "../../assets/travel.jpg";
 
 function HomeSection() {
-    return ( 
-        <div className={classes.content}>
+    return (
             <div className={classes.main_content}>
                 <div className={classes.main_content_img}>
                     <img src={image} alt="Image of a destination to Explore"/>
@@ -15,7 +14,6 @@ function HomeSection() {
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 </div>
             </div>
-        </div>
     );
 }
 

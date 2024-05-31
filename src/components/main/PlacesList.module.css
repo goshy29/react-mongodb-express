@@ -1,0 +1,9 @@
+.place_items {
+    padding-top: 10px;
+}
+
+.place_items li {
+    background-color: white;
+    opacity: 0.95;
+    list-style: none;
+}

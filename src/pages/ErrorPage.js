@@ -1,6 +1,18 @@
+import { Helmet } from "react-helmet";
+import ErrorLayout from "../components/layout/ErrorLayout";
+
 function ErrorPage() {
     return ( 
-        <h1>Error Page</h1>
+        <>
+            <Helmet>
+                    <title>Error</title>  
+                    <meta name="description" content="Page Not Found." /> 
+            </Helmet>
+            
+            <ErrorLayout>
+                <h1>Page Not Found</h1>
+            </ErrorLayout>
+        </>
     );
 }
 

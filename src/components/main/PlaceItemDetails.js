@@ -1,15 +1,15 @@
 import classes from "./PlaceItemDetails.module.css";
 
 function PlaceItemDetails(props) {
-    return ( 
-        <div className={classes.details}>
-            <div className={classes.details_img}>
-                <img src={props.place.image} alt={props.place.title}/>
+    return (
+        <div className={classes.content}>
+            <div className={classes.details}>
+                <img src={props.place.image} alt={props.place.title} />
+                <h1>{props.place.title}</h1>
+                <h2>{props.place.place}</h2>
+                <address>{props.place.country}</address>
+                <p>{props.place.description}</p>
             </div>
-            <h1>{props.place.title}</h1>
-            <h2>{props.place.place}</h2>
-            <h2>{props.place.country}</h2>
-            <h2>{props.place.description}</h2>
         </div>
     );
 }

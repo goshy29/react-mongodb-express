@@ -2,6 +2,7 @@ import MainSectionLayout from "../components/layout/MainSectionLayout";
 import AllPlacesLayout from "../components/layout/AllPlacesLayout";
 import PlacesList from "../components/main/PlacesList";
 import { Helmet } from "react-helmet";
+import { Suspense, useEffect, useState } from "react";
 
 const data = [
     {
@@ -34,6 +35,28 @@ const data = [
 ]
 
 function PlacesPage() {
+    const [loadedPlaces, setLoadedPlaces] = useState([]);
+    const [error, setError] = useState();
+
+    useEffect(() => {
+        async function fetchAllPlaces() {
+            try {
+                const response = await fetch("http://localhost:5000/api/places");
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data.');
+                }
+
+                const data = await response.json();
+                setLoadedPlaces(data.places);
+            } catch(err) {
+                setError(err.message);
+            }
+        }
+
+        fetchAllPlaces();
+    }, []);
+    
     return (
         <>
             <Helmet>
@@ -43,7 +66,11 @@ function PlacesPage() {
 
             <AllPlacesLayout>
                 <MainSectionLayout>
-                <PlacesList places={data}/>
+                    <Suspense fallback={<p>Loading...</p>}>
+                        {error && (<p>Error: {error}</p>)}
+                        {loadedPlaces.length === 0 && !error && (<h1>Places Not Found.</h1>)}
+                        {loadedPlaces && !error && (<PlacesList places={loadedPlaces}/>)}
+                    </Suspense>
                 </MainSectionLayout>
             </AllPlacesLayout>
         </>    

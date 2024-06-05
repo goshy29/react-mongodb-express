@@ -1,11 +1,14 @@
 const Place = require("../models/place-model");
 
+const HttpError = require("../models/http-error");
+
 async function getAllPlaces(req, res, next) {
     let places;
     try {
       places = await Place.find();
     } catch (err) {
-      return res.status(500).json({message: "Fetching places failed!"});
+      const error = new HttpError("Fetching all places failed.", 500);
+      return next(error); 
     }
 
     res.json({places});
@@ -17,11 +20,13 @@ async function getPlaceById(req, res, next) {
     try {
       place = await Place.findById(placeId);
     } catch (err) {
-      return res.status(500).json({message: "Fetching place failed!"});
+      const error = new HttpError("Fetching place failed.", 500);
+      return next(error);
     }
   
     if (!place) {
-      return res.status(404).json({message: "Place not found."});
+      const error = new HttpError("Place not found.", 404);
+      return next(error);
     }
   
     res.json({place});
@@ -41,7 +46,8 @@ async function createPlace(req, res, next) {
     try {
       await createdPlace.save();
     } catch (err) {
-      return res.status(500).json({message: "Creating place failed!"});
+      const error = new HttpError("Creating place failed!.", 500);
+      return next(error);
     }
   
     res.status(201).json({place: createdPlace});
@@ -59,11 +65,13 @@ async function updatePlace(req, res, next) {
         {new: true}
       );
     } catch (err) {
-      return res.status(500).json({message: "Updating place failed!"});
+      const error = new HttpError("Updating place failed!", 500);
+      return next(error);
     }
   
     if (!updatedPlace) {
-      return res.status(404).json({message: "Place not found."});
+      const error = new HttpError("Place not found.", 404);
+      return next(error);
     }
   
     res.json({place: updatedPlace});
@@ -76,17 +84,20 @@ async function deletePlace(req, res, next) {
     try {
       place = await Place.findById(placeId);
     } catch (err) {
-      return res.status(500).json({message: "Fetching place failed!"});
+      const error = new HttpError("Fetching place failed!", 500);
+      return next(error);
     }
   
     if (!place) {
-      return res.status(404).json({message: "Place not found."});
+      const error = new HttpError("Place not found.", 404);
+      return next(error);
     }
   
     try {
       await place.remove();
     } catch (err) {
-      return res.status(500).json({message: "Deleting place failed!"});
+      const error = new HttpError("Deleting place failed!", 500);
+      return next(error);
     }
   
     res.status(200).json({message: "Place deleted."});

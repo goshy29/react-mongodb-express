@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 
 function AddPlacePage() {
     const location = useLocation();
+    // If "location.state" exists and has a "place" property(In case from where we call AddPlacePage component)
     const place = location.state?.place || null;
 
     return (

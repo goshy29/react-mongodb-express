@@ -5,9 +5,9 @@ function PlacesList(props) {
     return ( 
         <ul className={classes.place_items}>
             {props.places.map((place) => (
-                <li key={place.id}>
+                <li key={place._id}>
                     <PlaceItem 
-                        id={place.id}
+                        id={place._id}
                         image={place.image} 
                         title={place.title} 
                         place={place.place}  

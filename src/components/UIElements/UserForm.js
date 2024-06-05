@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "./UserForm.module.css";
 
 function UserForm(props) {
@@ -9,6 +9,8 @@ function UserForm(props) {
     const countryInputRef = useRef();
     const imageInputRef = useRef();
     const descriptionInputRef = useRef();
+
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         if (place) {
@@ -29,15 +31,20 @@ function UserForm(props) {
         const enteredImage = imageInputRef.current.value;
         const enteredDescription = descriptionInputRef.current.value;
 
-        // add some validations..
+        if (enteredTitle.trim() === '' || enteredPlace.trim() === '' || enteredCountry.trim() === '' ||
+            enteredImage.trim() === '' || enteredDescription.trim() === '') {
+            setErrorMessage('All fields must be filled.');
+            return;
+        }
 
 
-        // const meetupData = {
-        //     title: enteredTitle,
-        //     image: enteredImage,
-        //     address: enteredAddress,
-        //     description: enteredDescription    
-        // }
+        const placeData = {
+            title: enteredTitle,
+            place: enteredPlace,
+            country: enteredCountry,
+            image: enteredImage,
+            description: enteredDescription
+        }
 
         // props.onAddMeetup(meetupData);
     }
@@ -71,6 +78,7 @@ function UserForm(props) {
                     <textarea required id="description" rows="5" ref={descriptionInputRef}
                     />
                 </div>
+                {errorMessage && (<p className={classes.error_message}>{errorMessage}</p>)}
                 <div className={classes.actions}>
                     <button type="submit">{place ? 'Save Changes' : 'Add Place'}</button>
                 </div>

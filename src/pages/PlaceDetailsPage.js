@@ -3,6 +3,7 @@ import AllPlacesLayout from "../components/layout/AllPlacesLayout";
 import MainSectionLayout from "../components/layout/MainSectionLayout";
 import PlaceItemDetails from "../components/main/PlaceItemDetails";
 import { Helmet } from "react-helmet";
+import { Suspense, useEffect, useState } from "react";
 
 const data = [
     {
@@ -35,20 +36,45 @@ const data = [
 ]
 
 function PlaceDetailsPage() {
+    const [loadedPlace, setLoadedPlace] = useState([]);
+    const [error, setError] = useState();
+
     const { placeId } = useParams();
-    const place = data.find(p => p.id === placeId);
+
+    useEffect(() => {
+        async function fetchPlace() {
+            try {
+                const response = await fetch(`http://localhost:5000/api/places/${placeId}`);
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data.');
+                }
+
+                const data = await response.json();
+                setLoadedPlace(data.place);
+            } catch(err) {
+                setError(err.message);
+            }
+        }
+
+        fetchPlace();
+    }, [placeId]);
 
     return (
         <>
-            <Helmet>
-                    <title>{place.title}</title>  
-                    <meta name="description" content={place.description} /> 
-            </Helmet>
+            {loadedPlace && (
+                <Helmet>
+                        <title>{loadedPlace.title}</title>  
+                        <meta name="description" content={loadedPlace.description} /> 
+                </Helmet>
+            )}
 
             <AllPlacesLayout>
                 <MainSectionLayout>
-                    {!place && (<h1>Place not found!</h1>)}
-                    {place && (<PlaceItemDetails place={place}/>)}
+                    <Suspense fallback={<p>Loading...</p>}>
+                        {error && (<p>Error: {error}</p>)}
+                        {loadedPlace && !error && (<PlaceItemDetails place={loadedPlace}/>)}
+                    </Suspense>
                 </MainSectionLayout>
             </AllPlacesLayout>  
         </>   

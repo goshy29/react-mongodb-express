@@ -10,7 +10,7 @@ function UserForm(props) {
     const imageInputRef = useRef();
     const descriptionInputRef = useRef();
 
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         if (place) {
@@ -31,12 +31,11 @@ function UserForm(props) {
         const enteredImage = imageInputRef.current.value;
         const enteredDescription = descriptionInputRef.current.value;
 
-        if (enteredTitle.trim() === '' || enteredPlace.trim() === '' || enteredCountry.trim() === '' ||
-            enteredImage.trim() === '' || enteredDescription.trim() === '') {
-            setErrorMessage('All fields must be filled.');
+        if (enteredTitle.trim() === "" || enteredPlace.trim() === "" || enteredCountry.trim() === "" ||
+            enteredImage.trim() === "" || enteredDescription.trim() === "") {
+            setErrorMessage("All fields must be filled.");
             return;
         }
-
 
         const placeData = {
             title: enteredTitle,
@@ -46,12 +45,12 @@ function UserForm(props) {
             description: enteredDescription
         }
 
-        // props.onAddMeetup(meetupData);
+        props.onAddPlace(placeData);
     }
 
     return ( 
         <div className={classes.form_wrap}>
-            <p className={classes.form_title}>{place ? 'Edit Place' : 'Add Place'}</p>
+            <p className={classes.form_title}>{place ? "Edit Place" : "Add Place"}</p>
             <form className={classes.form} onSubmit={handlerSubmit}>
                 <div className={classes.control}>
                     <label htmlFor="title">Title</label>
@@ -80,7 +79,7 @@ function UserForm(props) {
                 </div>
                 {errorMessage && (<p className={classes.error_message}>{errorMessage}</p>)}
                 <div className={classes.actions}>
-                    <button type="submit">{place ? 'Save Changes' : 'Add Place'}</button>
+                    <button type="submit">{place ? "Save Changes" : "Add Place"}</button>
                 </div>
             </form>    
         </div>

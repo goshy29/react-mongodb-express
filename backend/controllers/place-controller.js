@@ -94,7 +94,7 @@ async function deletePlace(req, res, next) {
     }
   
     try {
-      await place.remove();
+      await place.deleteOne({_id: placeId});
     } catch (err) {
       const error = new HttpError("Deleting place failed!", 500);
       return next(error);

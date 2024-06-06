@@ -44,7 +44,7 @@ function PlacesPage() {
                 const response = await fetch("http://localhost:5000/api/places");
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch data.');
+                    throw new Error('Failed to fetch the places.');
                 }
 
                 const data = await response.json();

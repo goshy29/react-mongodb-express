@@ -32,8 +32,32 @@ function AddPlacePage() {
         }
     }
 
-    async function handlerUpdatePlace(placeData) {
+    async function handlerUpdatePlace(placeId, placeData) {
+        try {
+            const response = await fetch(`http://localhost:5000/api/places/${placeId}`, 
+                {
+                    method: "PATCH",
+                    body: JSON.stringify(placeData),
+                    headers: {"Content-Type": "application/json"}
+                }
+            );
 
+            if (!response.ok) {
+                throw new Error("Failed to update the place.");
+            }
+
+            navigate(`/places/${placeId}`);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    function handlerPlaceSubmit(placeData) {
+        if (place) {
+            handlerUpdatePlace(place._id, placeData);
+        } else {
+            handlerAddPlace(placeData);
+        }
     }
 
     return (
@@ -45,7 +69,7 @@ function AddPlacePage() {
 
             <AddPlaceLayout>
                 <MainSectionLayout>
-                    <UserForm onAddPlace={handlerAddPlace} place={place}/>
+                    <UserForm onPlaceSubmit={handlerPlaceSubmit} place={place}/>
                 </MainSectionLayout>
             </AddPlaceLayout>
         </> 

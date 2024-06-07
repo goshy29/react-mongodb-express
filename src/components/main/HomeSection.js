@@ -1,5 +1,5 @@
 import classes from "./HomeSection.module.css";
-import image from "../../assets/travel.jpg";
+import image from "../../assets/images/travel.jpg";
 
 function HomeSection() {
     return (

@@ -24,7 +24,7 @@ function Navigation() {
                 (<MobileNavigation onClose={handlerCloseMobileNav}>
                     <nav className={mobileClass.mobile_navbar}>
                         <ul className={mobileClass.mobile_navbar_list}>
-                            <NavLinks />
+                            <NavLinks onClick={handlerCloseMobileNav}/>
                         </ul>    
                     </nav>        
                 </MobileNavigation>)

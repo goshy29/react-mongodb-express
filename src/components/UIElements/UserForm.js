@@ -45,7 +45,7 @@ function UserForm(props) {
             description: enteredDescription
         }
 
-        props.onAddPlace(placeData);
+        props.onPlaceSubmit(placeData);
     }
 
     return ( 

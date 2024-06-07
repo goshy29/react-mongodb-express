@@ -6,11 +6,11 @@ function PlaceItemDetails(props) {
     const navigate = useNavigate();
     const [error, setError] = useState();
 
-    function handleEditPlace() {
+    function handlerEditPlace() {
         navigate('/add-place', {state: {place: props.place}});
     }
 
-    async function handleDeletePlace() {
+    async function handlerDeletePlace() {
         const confirmDelete = window.confirm(`Do you want to Delete ${props.place.title}?`);
         if (confirmDelete) {
             try {
@@ -41,8 +41,8 @@ function PlaceItemDetails(props) {
                     <address>Country: {props.place.country}</address>
                     <p>Description: {props.place.description}</p>
                     <div className={classes.btn_container}>
-                        <button className={classes.btn_edit} onClick={handleEditPlace}>Edit Details</button> 
-                        <button className={classes.btn_delete} onClick={handleDeletePlace}>Delete Place</button>
+                        <button className={classes.btn_edit} onClick={handlerEditPlace}>Edit Details</button> 
+                        <button className={classes.btn_delete} onClick={handlerDeletePlace}>Delete Place</button>
                     </div>
                 </div>
             )}

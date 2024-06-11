@@ -10,15 +10,15 @@ function AddPlacePage() {
     const location = useLocation();
     // If "location.state" exists and has a "place" property(In case from where we call AddPlacePage component)
     const place = location.state?.place || null;
-    
+
 
     async function handlerAddPlace(placeData) {
         try {
-            const response = await fetch("http://localhost:5000/api/places", 
+            const response = await fetch("http://localhost:5000/api/places",
                 {
                     method: "POST",
                     body: JSON.stringify(placeData),
-                    headers: {"Content-Type": "application/json"}
+                    headers: { "Content-Type": "application/json" }
                 }
             );
 
@@ -26,19 +26,19 @@ function AddPlacePage() {
                 throw new Error("Failed to post the place.");
             }
 
-            navigate('/places');
-        } catch(err) {
+            navigate("/places");
+        } catch (err) {
             console.log(err);
         }
     }
 
     async function handlerUpdatePlace(placeId, placeData) {
         try {
-            const response = await fetch(`http://localhost:5000/api/places/${placeId}`, 
+            const response = await fetch(`http://localhost:5000/api/places/${placeId}`,
                 {
                     method: "PATCH",
                     body: JSON.stringify(placeData),
-                    headers: {"Content-Type": "application/json"}
+                    headers: { "Content-Type": "application/json" }
                 }
             );
 
@@ -47,7 +47,7 @@ function AddPlacePage() {
             }
 
             navigate(`/places/${placeId}`);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
@@ -63,16 +63,16 @@ function AddPlacePage() {
     return (
         <>
             <Helmet>
-                <title>Add Place</title>  
-                <meta name="description" content="Add the places of your dream you want to explore." /> 
+                <title>Add Place</title>
+                <meta name="description" content="Add the places of your dream you want to explore." />
             </Helmet>
 
             <AddPlaceLayout>
                 <MainSectionLayout>
-                    <UserForm onPlaceSubmit={handlerPlaceSubmit} place={place}/>
+                    <UserForm onPlaceSubmit={handlerPlaceSubmit} place={place} />
                 </MainSectionLayout>
             </AddPlaceLayout>
-        </> 
+        </>
     );
 }
 

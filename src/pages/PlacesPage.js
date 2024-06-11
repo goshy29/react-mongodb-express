@@ -44,24 +44,24 @@ function PlacesPage() {
                 const response = await fetch("http://localhost:5000/api/places");
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch the places.');
+                    throw new Error("Failed to fetch the places.");
                 }
 
                 const data = await response.json();
                 setLoadedPlaces(data.places);
-            } catch(err) {
+            } catch (err) {
                 setError(err.message);
             }
         }
 
         fetchAllPlaces();
     }, []);
-    
+
     return (
         <>
             <Helmet>
-                <title>Places</title>  
-                <meta name="description" content="Explore your dream destinations." /> 
+                <title>Places</title>
+                <meta name="description" content="Explore your dream destinations." />
             </Helmet>
 
             <AllPlacesLayout>
@@ -69,11 +69,11 @@ function PlacesPage() {
                     <Suspense fallback={<p>Loading...</p>}>
                         {error && (<p>Error: {error}</p>)}
                         {loadedPlaces.length === 0 && !error && (<h1>Places Not Found.</h1>)}
-                        {loadedPlaces && !error && (<PlacesList places={loadedPlaces}/>)}
+                        {loadedPlaces && !error && (<PlacesList places={loadedPlaces} />)}
                     </Suspense>
                 </MainSectionLayout>
             </AllPlacesLayout>
-        </>    
+        </>
     );
 }
 

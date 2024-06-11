@@ -47,12 +47,12 @@ function PlaceDetailsPage() {
                 const response = await fetch(`http://localhost:5000/api/places/${placeId}`);
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch the place.');
+                    throw new Error("Failed to fetch the place.");
                 }
 
                 const data = await response.json();
                 setLoadedPlace(data.place);
-            } catch(err) {
+            } catch (err) {
                 setError(err.message);
             }
         }
@@ -64,8 +64,8 @@ function PlaceDetailsPage() {
         <>
             {loadedPlace && (
                 <Helmet>
-                        <title>{loadedPlace.title}</title>  
-                        <meta name="description" content={loadedPlace.description} /> 
+                    <title>{loadedPlace.title}</title>
+                    <meta name="description" content={loadedPlace.description} />
                 </Helmet>
             )}
 
@@ -73,11 +73,11 @@ function PlaceDetailsPage() {
                 <MainSectionLayout>
                     <Suspense fallback={<p>Loading...</p>}>
                         {error && (<p>Error: {error}</p>)}
-                        {loadedPlace && !error && (<PlaceItemDetails place={loadedPlace}/>)}
+                        {loadedPlace && !error && (<PlaceItemDetails place={loadedPlace} />)}
                     </Suspense>
                 </MainSectionLayout>
-            </AllPlacesLayout>  
-        </>   
+            </AllPlacesLayout>
+        </>
     );
 }
 

@@ -1,5 +1,6 @@
 .main_header {
     width: 90%;
+    max-width: 70rem;
     margin: 0 auto;
     position: fixed;
     top: 20px;
@@ -14,5 +15,5 @@
         top: 0;
         left: 0;
         transform: translateX(0);
-    }   
+    }
 }

@@ -19,7 +19,7 @@
     font-size: 1.5rem;
     letter-spacing: 4px;
 }
-  
+
 .navbar_list {
     list-style-type: none;
     text-align: center;
@@ -30,7 +30,7 @@
     display: inline-block;
     margin-right: 20px;
 }
-  
+
 .navbar_link {
     color: black;
     text-decoration: none;
@@ -44,6 +44,7 @@
 .active {
     color: #65c0ba;
     text-decoration: none;
+    padding: 5px 10px;
     font-weight: bold;
 }
 
@@ -73,10 +74,10 @@
     }
 
     .mobileNav_btn_menu {
-      display: flex;
+        display: flex;
     }
 
     .navbar_list {
-      display: none;
+        display: none;
     }
 }

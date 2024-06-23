@@ -19,12 +19,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/api/places", placesRoutes); 
+app.use("/api/places", placesRoutes);
 
 app.use((req, res, next) => {
     const error = new HttpError("Could not find this route", 404);
     throw error;
-}); 
+});
 
 // This special middleware function will only be executed on the request that have an error attached!
 // Will execute if any middleware in front of it throw an error!
@@ -33,15 +33,15 @@ app.use((error, req, res, next) => {
         return next(error);
     }
 
-    res.status(error.code || 500).json({message: error.message || "An unknown error."});
+    res.status(error.code || 500).json({ message: error.message || "An unknown error." });
 });
 
 
 mongoose
-.connect("mongodb+srv://goshy:ns6erApJg73CXHLd@cluster0.mb9mxkm.mongodb.net/places?retryWrites=true&w=majority&appName=Cluster0")
-.then(() => {
-    app.listen(5000);
-})
-.catch(error => {
-    console.log(error);
-})
+    .connect("mongodb+srv://goshy:ns6erApJg73CXHLd@cluster0.mb9mxkm.mongodb.net/places?retryWrites=true&w=majority&appName=Cluster0")
+    .then(() => {
+        app.listen(5000);
+    })
+    .catch(error => {
+        console.log(error);
+    })

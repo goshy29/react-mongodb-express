@@ -31,10 +31,9 @@ function PlaceItemDetails(props) {
 
     return (
         <div className={classes.content}>
-            {error ? (
-                <p>Error: {error}</p>
-            ) : (
-                <div className={classes.details}>
+            {error ? 
+                (<h3>Error: {error}</h3>) : 
+                (<div className={classes.details}>
                     <img src={props.place.image} alt={props.place.title} />
                     <h1>Title: {props.place.title}</h1>
                     <h2>Place: {props.place.place}</h2>
@@ -44,8 +43,8 @@ function PlaceItemDetails(props) {
                         <button className={classes.btn_edit} onClick={handlerEditPlace}>Edit Details</button>
                         <button className={classes.btn_delete} onClick={handlerDeletePlace}>Delete Place</button>
                     </div>
-                </div>
-            )}
+                </div>)
+            }
         </div>
     );
 }

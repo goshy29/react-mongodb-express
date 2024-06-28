@@ -72,7 +72,7 @@ function PlaceDetailsPage() {
             <AllPlacesLayout>
                 <MainSectionLayout>
                     <Suspense fallback={<p>Loading...</p>}>
-                        {error && (<p>Error: {error}</p>)}
+                        {error && (<h3>Error: {error}</h3>)}
                         {loadedPlace && !error && (<PlaceItemDetails place={loadedPlace} />)}
                     </Suspense>
                 </MainSectionLayout>

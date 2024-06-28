@@ -67,7 +67,7 @@ function PlacesPage() {
             <AllPlacesLayout>
                 <MainSectionLayout>
                     <Suspense fallback={<p>Loading...</p>}>
-                        {error && (<p>Error: {error}</p>)}
+                        {error && (<h3>Error: {error}</h3>)}
                         {loadedPlaces.length === 0 && !error && (<h1>Places Not Found.</h1>)}
                         {loadedPlaces && !error && (<PlacesList places={loadedPlaces} />)}
                     </Suspense>

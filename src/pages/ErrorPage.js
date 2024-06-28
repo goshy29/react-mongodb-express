@@ -6,7 +6,7 @@ function ErrorPage() {
         <>
             <Helmet>
                 <title>Error</title>
-                <meta name="description" content="Page Not Found." />
+                <meta name="description" content="The page you are looking for does not exist." />
             </Helmet>
 
             <ErrorLayout>

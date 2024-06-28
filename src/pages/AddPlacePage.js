@@ -3,9 +3,11 @@ import UserForm from "../components/UIElements/UserForm";
 import AddPlaceLayout from "../components/layout/AddPlaceLayout";
 import MainSectionLayout from "../components/layout/MainSectionLayout";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function AddPlacePage() {
     const navigate = useNavigate();
+    const[error, setError] = useState();
 
     const location = useLocation();
     // If "location.state" exists and has a "place" property(In case from where we call AddPlacePage component)
@@ -23,12 +25,12 @@ function AddPlacePage() {
             );
 
             if (!response.ok) {
-                throw new Error("Failed to post the place.");
+                throw new Error("Failed to save the place.");
             }
 
             navigate("/places");
         } catch (err) {
-            console.log(err);
+            setError(err.message);
         }
     }
 
@@ -48,7 +50,7 @@ function AddPlacePage() {
 
             navigate(`/places/${placeId}`);
         } catch (err) {
-            console.log(err);
+            setError(err.message);
         }
     }
 
@@ -69,7 +71,10 @@ function AddPlacePage() {
 
             <AddPlaceLayout>
                 <MainSectionLayout>
-                    <UserForm onPlaceSubmit={handlerPlaceSubmit} place={place} />
+                    {error ? 
+                        (<h3>Error: {error}</h3>) : 
+                        (<UserForm onPlaceSubmit={handlerPlaceSubmit} place={place} />)
+                    }
                 </MainSectionLayout>
             </AddPlaceLayout>
         </>

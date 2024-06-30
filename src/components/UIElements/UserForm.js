@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import classes from "./UserForm.module.css";
 
 function UserForm(props) {
-    const {place} = props;
+    const { place } = props;
 
     const titleInputRef = useRef();
     const placeInputRef = useRef();
@@ -48,40 +48,40 @@ function UserForm(props) {
         props.onPlaceSubmit(placeData);
     }
 
-    return ( 
+    return (
         <div className={classes.form_wrap}>
             <p className={classes.form_title}>{place ? "Edit Place" : "Add Place"}</p>
             <form className={classes.form} onSubmit={handlerSubmit}>
                 <div className={classes.control}>
                     <label htmlFor="title">Title</label>
-                    <input type="text" required id="title" ref={titleInputRef}
+                    <input type="text" required id="title" placeholder="Title" ref={titleInputRef}
                     />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="place">Place</label>
-                    <input type="text" required id="place" ref={placeInputRef}
+                    <input type="text" required id="place" placeholder="Place" ref={placeInputRef}
                     />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="country">Country</label>
-                    <input type="text" required id="country" ref={countryInputRef}
+                    <input type="text" required id="country" placeholder="Country" ref={countryInputRef}
                     />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="image">Image URL</label>
-                    <input type="url" required id="image" ref={imageInputRef}
+                    <input type="url" required id="image" placeholder="Image URL" ref={imageInputRef}
                     />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="description">Description</label>
-                    <textarea required id="description" rows="5" ref={descriptionInputRef}
+                    <textarea required id="description" rows="5" placeholder="Enter Description" ref={descriptionInputRef}
                     />
                 </div>
                 {errorMessage && (<p className={classes.error_message}>{errorMessage}</p>)}
                 <div className={classes.actions}>
                     <button type="submit">{place ? "Save Changes" : "Add Place"}</button>
                 </div>
-            </form>    
+            </form>
         </div>
     );
 }
